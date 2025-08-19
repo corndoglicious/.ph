@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Corndoglicious</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="hotdog.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="hotdog.png" alt="Corndoglicious Logo" class="logo-img">
+                <h2>Corndoglicious</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-social">
+                <span class="follow-text">Follow us:</span>
+                <a href="https://www.facebook.com/profile.php?id=61579358019088" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="facebook.png" alt="Facebook" class="social-img"></a>
+                <a href="https://www.instagram.com/corndogli_cious/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="instagram.png" alt="Instagram" class="social-img"></a>
+                <a href="https://www.tiktok.com/@corndog_licious" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="tiktok.png" alt="TikTok" class="social-img"></a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="products">
+            <div class="container">
+                <h2>Our Corndogs</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="ham-cheese.jpg" alt="Ham and Cheese Corndog">
+                        </div>
+                        <div class="product-info">
+                            <h3>Ham and Cheese Corndog</h3>
+                            <p>A tasty corndog made with ham and cheese, coated in our crispy corn batter. Customize with cheese powder, hot cheese powder, hot sauce, ketchup and mayo of your choice, and more added condiments soon!</p>
+                            <div class="product-price">₱40.00</div>
+                            <div class="product-features">
+                                <span class="feature-tag">Ham & Cheese</span>
+                                <span class="feature-tag">Crispy Batter</span>
+                                <span class="feature-tag">Customizable</span>
+                            </div>
+                            <button class="select-button" onclick="openModal('ham-cheese')">Select</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="regular.jpg" alt="Classic Regular Corndog">
+                        </div>
+                        <div class="product-info">
+                            <h3>Classic Regular Corndog</h3>
+                            <p>Our regular corndog made with hotdog sliced into four pieces, coated in crispy corn batter. Customize with cheese powder, hot cheese powder, hot sauce, ketchup and mayo of your choice, and more added condiments soon!</p>
+                            <div class="product-price">₱40.00</div>
+                            <div class="product-features">
+                                <span class="feature-tag">Classic</span>
+                                <span class="feature-tag">Crispy Batter</span>
+                                <span class="feature-tag">Customizable</span>
+                            </div>
+                            <button class="select-button" onclick="openModal('regular')">Select</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="condiments-section">
+                    <h3>Customize Your Corndog</h3>
+                    <p>Make it your own with our variety of condiments and toppings!</p>
+                    <div class="condiments-grid">
+                        <div class="condiment-item"><span class="condiment-icon">🔥🧀</span><h4>Hot Cheese Powder</h4></div>
+                        <div class="condiment-item"><span class="condiment-icon">🧀</span><h4>Cheese Powder</h4></div>
+                        <div class="condiment-item"><span class="condiment-icon">🌶️</span><h4>Hot Sauce</h4></div>
+                        <div class="condiment-item"><span class="condiment-icon">🍅</span><h4>Ketchup</h4></div>
+                        <div class="condiment-item"><span class="condiment-icon">🥫</span><h4>Mayonnaise</h4></div>
+                    </div>
+                    <div class="condiment-note">
+                        <h4>💰 Condiment Pricing</h4>
+                        <p>Ketchup and Mayonnaise are FREE! Additional condiments like Hot Cheese Powder, Cheese Powder, and Hot Sauce cost ₱5.00 extra.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Ham and Cheese Corndog -->
+    <div id="ham-cheese-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ham-cheese')">&times;</span>
+            <img src="ham-cheese.jpg" alt="Ham and Cheese Corndog" class="modal-image">
+            <h3 class="modal-title">Ham and Cheese Corndog</h3>
+            <div class="modal-price">₱40.00</div>
+            <p class="modal-description">A tasty corndog made with ham and cheese, coated in our crispy corn batter. Customize with cheese powder, hot cheese powder, hot sauce, ketchup and mayo of your choice, and more added condiments soon!</p>
+            <div class="modal-buttons">
+                <button class="btn-close" onclick="closeModal('ham-cheese')">Close</button>
+                <a href="https://www.facebook.com/messages/t/796250906897999" target="_blank" rel="noopener" class="btn-order">Order Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Regular Corndog -->
+    <div id="regular-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('regular')">&times;</span>
+            <img src="regular.jpg" alt="Classic Regular Corndog" class="modal-image">
+            <h3 class="modal-title">Classic Regular Corndog</h3>
+            <div class="modal-price">₱40.00</div>
+            <p class="modal-description">Our regular corndog made with hotdog sliced into four pieces, coated in crispy corn batter. Customize with cheese powder, hot cheese powder, hot sauce, ketchup and mayo of your choice, and more added condiments soon!</p>
+            <div class="modal-buttons">
+                <button class="btn-close" onclick="closeModal('regular')">Close</button>
+                <a href="https://www.facebook.com/messages/t/796250906897999" target="_blank" rel="noopener" class="btn-order">Order Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="hotdog.png" alt="Corndoglicious" class="brand-logo">
+                    <div>
+                        <h4>Follow us</h4>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/profile.php?id=61579358019088" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/corndogli_cious/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@corndog_licious" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4>About</h4>
+                    <p>Affordable, tasty corndogs perfect for quick snacks and casual hangouts.<br>#Corndoglicious 😋</p>
+                </div>
+                <div>
+                    <h4>Where to Find Us</h4>
+                    <p>20 J. Ferrer Street, Guerrero Compound,<br>San Isidro, Parañaque City, Metro Manila</p>
+                </div>
+                <div>
+                                         <h4>Go To</h4>
+                     <ul class="footer-links">
+                         <li><a href="index.html">Home</a></li>
+                         <li><a href="about.html">About</a></li>
+                         <li><a href="products.html">Products</a></li>
+                         <li><a href="contact.html">Contact</a></li>
+                     </ul>
+                </div>
+            </div>
+                 </div>
+         <div class="footer-bottom">
+             <div class="footer-divider"></div>
+             <div class="copyright">
+                 <p>© 2025 Corndoglicious. All rights reserved.</p>
+             </div>
+         </div>
+     </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Modal functions
+        function openModal(productType) {
+            document.getElementById(productType + '-modal').style.display = 'block';
+        }
+
+        function closeModal(productType) {
+            document.getElementById(productType + '-modal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Add click event listeners to all select buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectButtons = document.querySelectorAll('.select-button');
+            selectButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove clicked class from all buttons first
+                    selectButtons.forEach(btn => btn.classList.remove('clicked'));
+                    // Add clicked class to current button
+                    this.classList.add('clicked');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+

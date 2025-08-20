@@ -1,32 +1,3 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
 // Navbar background change on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -77,15 +48,45 @@ document.querySelectorAll('.product-card').forEach(card => {
     });
 });
 
-// Add loading animation for images
-document.querySelectorAll('img').forEach(img => {
-    img.addEventListener('load', function() {
-        this.style.opacity = '1';
-    });
+// Improved image loading with fallback
+const loadImages = () => {
+    const images = document.querySelectorAll('img');
     
-    img.style.opacity = '0';
-    img.style.transition = 'opacity 0.5s ease';
-});
+    images.forEach(img => {
+        // Set initial opacity to 0
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.5s ease';
+        
+        // Function to show image
+        const showImage = () => {
+            img.style.opacity = '1';
+        };
+        
+        // Check if image is already loaded
+        if (img.complete && img.naturalHeight !== 0) {
+            showImage();
+        } else {
+            // Listen for load event
+            img.addEventListener('load', showImage);
+            
+            // Fallback: show image after a timeout if load event doesn't fire
+            setTimeout(() => {
+                if (img.style.opacity === '0') {
+                    showImage();
+                }
+            }, 2000);
+            
+            // Handle error case
+            img.addEventListener('error', () => {
+                console.warn('Failed to load image:', img.src);
+                showImage(); // Show anyway to prevent broken image icon
+            });
+        }
+    });
+};
+
+// Initialize image loading when DOM is ready
+document.addEventListener('DOMContentLoaded', loadImages);
 
 // Add scroll progress indicator
 const createScrollProgress = () => {

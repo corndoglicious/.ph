@@ -68,12 +68,19 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     opacity: 1 !important;
 }
 
+/* Navbar brand text interaction like logo */
 .navbar-brand h2 {
-    color: #e67e22;
-    font-size: 1.4rem;       /* smaller by default for tighter headers */
-    font-weight: 700;
-    margin: 0;
-    white-space: nowrap;     /* prevent wrap that can push content down */
+	transition: transform 0.15s ease;
+	display: inline-block;
+	cursor: pointer;
+}
+.navbar-brand h2:hover { transform: translateY(-1px) scale(1.03); }
+.navbar-brand h2:active { transform: translateY(1px) scale(0.96); }
+
+/* Header brand style override: light orange & bold while keeping pop effect */
+.navbar-brand h2 {
+	color: #e67e22 !important;
+	font-weight: 800;
 }
 
 .navbar-nav {
@@ -1229,4 +1236,36 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 .footer .footer-section p { color: #8b5e3c; }
 .footer .footer-section a { color: #6b4424; }
 .footer .footer-section a:hover { color: #e67e22; }
+
+/* Contact page social links: icon light orange, text black */
+.contact .social-link { color: #000; }
+.contact .social-link .social-icon { color: #e67e22; }
+.contact .social-link:hover { color: #000; text-decoration: underline; }
+
+/* Remove highlight around footer logo image */
+.footer .brand-logo {
+	box-shadow: none !important;
+	filter: none !important;
+	background: transparent !important;
+}
+
+/* Lively section headings using Baloo 2 when available */
+.about h2,
+.products h2,
+.contact h2 {
+	font-family: 'Baloo 2', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	font-weight: 800;
+	letter-spacing: 0.02em;
+}
+
+/* Apply Baloo 2 to important subheadings */
+.feature h3,
+.condiments-section h3,
+.contact-item h3,
+.contact-target h3,
+.modal-title {
+	font-family: 'Baloo 2', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+}
 

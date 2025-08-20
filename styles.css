@@ -1155,3 +1155,16 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	min-width: 120px;
 }
 
+/* Unified sizing for modal action buttons */
+.modal-buttons .btn-cancel,
+.modal-buttons .btn-order {
+	padding: 12px 26px !important;
+	min-width: 140px !important;
+	border-radius: 999px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	font-size: 1rem !important;
+	line-height: 1 !important;
+}
+

@@ -817,20 +817,28 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     max-width: 500px;
     position: relative;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.06);
 }
 
 .close {
     position: absolute;
-    right: 1rem;
-    top: 1rem;
-    font-size: 2rem;
+    right: 0.75rem;
+    top: 0.75rem;
+    font-size: 1.25rem;
     font-weight: bold;
     cursor: pointer;
-    color: #999;
+    color: #333;
+    background: rgba(0,0,0,0.06);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    z-index: 1;
 }
 
 .close:hover {
-    color: #333;
+    background: rgba(0,0,0,0.12);
+    color: #000;
+    transform: scale(1.05);
 }
 
 .modal-image {
@@ -864,42 +872,57 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 
 .modal-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn-close {
-    background: #dc3545;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    background: #e74c3c !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 999px !important;
+    padding: 12px 24px !important;
+    box-shadow: 0 6px 18px rgba(231, 76, 60, 0.35);
+    font-weight: 700;
 }
 
 .btn-close:hover {
-    background: #c82333;
-    transform: translateY(-2px);
+    background: #c0392b !important;
 }
 
 .btn-order {
-    background: #28a745;
-    color: white;
+    background: #28a745 !important;
+    box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35);
+    border-radius: 999px;
     padding: 12px 24px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
 }
 
 .btn-order:hover {
     background: #218838;
     transform: translateY(-2px);
     color: white;
+}
+
+/* Cancel pill (red) for modal) */
+.btn-cancel {
+	background: #e74c3c;
+	color: #fff;
+	padding: 12px 26px;
+	border: none;
+	border-radius: 999px;
+	cursor: pointer;
+	font-weight: 700;
+	line-height: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 108px; /* prevents too-short pills */
+	box-shadow: 0 6px 18px rgba(231, 76, 60, 0.35);
+}
+
+.btn-cancel:hover {
+	background: #c0392b;
 }
 
 /* Order button style */
@@ -934,38 +957,44 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 
 /* Responsive Design */
 @media (max-width: 991px) {
-    /* Transparent collapsed menu so hero background stays visible */
+    /* Right-aligned collapsed panel with subtle orange background */
     .navbar-collapse {
-        background: transparent;
-        backdrop-filter: none;
-        border-radius: 0;
-        margin-top: 0.5rem;
-        padding: 0.5rem 0;
-        box-shadow: none;
+        position: absolute;
+        top: 70px;
+        right: 12px;
+        left: auto;
+        width: calc(100vw - 24px);
+        max-width: 360px;
+        background: rgba(255, 229, 204, 0.92);
+        border: 1px solid rgba(0,0,0,0.05);
+        border-radius: 12px;
+        padding: 0.75rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        backdrop-filter: blur(8px);
     }
 
     .navbar-nav {
         gap: 0.25rem;
         margin-bottom: 0.25rem;
         align-items: flex-start;
+        width: 100%;
     }
 
     .nav-link {
         padding: 0.5rem 0.75rem !important;
         border-radius: 6px;
         margin: 0.1rem 0;
-        background: transparent !important; /* keep links transparent */
-    }
-
-    .nav-link:hover {
         background: transparent !important;
     }
 
-    .nav-social {
-        margin-left: 0;
-        justify-content: center;
-        padding-top: 0.5rem;
-        border-top: none;
+    .nav-link:hover {
+        background: rgba(230, 126, 34, 0.08) !important;
+    }
+
+    /* Socials aligned to the right inside the panel */
+    .navbar-collapse .nav-social {
+        justify-content: flex-end;
+        padding-top: 0.25rem;
     }
 }
 
@@ -1060,7 +1089,8 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 }
 
 @media (max-width: 400px) {
-    .navbar-brand h2 { display: none; } /* keep header compact on very narrow devices */
+    /* keep brand text visible but compact on ultra-narrow screens */
+    .navbar-brand h2 { display: inline; font-size: 1rem; }
 }
 
 @media (min-width: 768px) {
@@ -1094,7 +1124,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 
     .modal-content {
         margin: 10% auto;
-        padding: 1.5rem;
+        padding: 1.25rem;
         width: 95%;
     }
 
@@ -1109,3 +1139,19 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
         text-align: center;
     }
 }
+
+/* Ensure Order Now anchor looks like a button */
+.btn-order,
+.btn-order:hover,
+.btn-order:focus,
+.btn-order:active,
+.btn-order:visited {
+	color: #fff !important;
+	text-decoration: none !important;
+	outline: none !important;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 120px;
+}
+

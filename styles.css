@@ -1168,3 +1168,65 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	line-height: 1 !important;
 }
 
+/* Footer heading color variations and highlights */
+.footer-social-section h4,
+.footer .footer-section h4 {
+	/* remove highlight background */
+	background: none !important;
+	padding: 0 !important;
+	border-radius: 0 !important;
+}
+
+/* Differentiate colors without background */
+.footer-social-section h4 { color: #7a4f27; }
+.footer .footer-section h4 { color: #5a3116; }
+.footer .footer-section p,
+.footer .footer-section a { color: #6b4424; }
+.footer .footer-section a:hover { color: #e67e22; }
+
+/* Desktop alignment for footer columns */
+@media (min-width: 768px) {
+	.footer-brand { align-items: flex-start; text-align: left; }
+	.footer .footer-section { text-align: left; }
+	.footer-links { padding-left: 0; }
+}
+
+/* Animated text color effect for footer links and headings on hover */
+@keyframes footerLinkGlow {
+	0% { color: #7a4f27; }
+	50% { color: #e67e22; }
+	100% { color: #7a4f27; }
+}
+.footer a:hover,
+.footer h4:hover {
+	animation: footerLinkGlow 1.2s ease-in-out infinite;
+	text-decoration: none;
+}
+
+/* Center the footer logo + label + icons on all sizes */
+.footer-brand {
+	align-items: center;
+	text-align: center;
+	padding-top: 0;
+}
+
+@media (min-width: 768px) {
+	.footer-brand { flex-direction: column; gap: 0.75rem; }
+	.footer-social-section { flex-direction: column; align-items: center; gap: 0.5rem; }
+	.footer-social { justify-content: center; }
+	.brand-logo { width: 84px; height: 84px; }
+}
+
+@media (max-width: 767.98px) {
+	.footer-brand { align-items: center; text-align: center; }
+	.footer-social-section { flex-direction: column; }
+	.footer-social { justify-content: center; }
+}
+
+/* Footer heading color hierarchy: headings darker than descriptions */
+.footer .footer-section h4 { color: #3f220e; font-weight: 800; letter-spacing: 0.04em; }
+.footer-social-section h4 { color: #512c15; font-weight: 800; }
+.footer .footer-section p { color: #8b5e3c; }
+.footer .footer-section a { color: #6b4424; }
+.footer .footer-section a:hover { color: #e67e22; }
+

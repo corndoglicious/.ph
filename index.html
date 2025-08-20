@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corndoglicious - Delicious Corndogs</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -11,52 +13,49 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <div class="navbar-brand d-flex align-items-center">
                 <a href="index.html" class="logo-link">
                     <img src="hotdog.png" alt="Corndoglicious Logo" class="logo-img">
                 </a>
-                <h2>Corndoglicious</h2>
+                <h2 class="mb-0 ms-2">Corndoglicious</h2>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-separator">|</span>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-separator">|</span>
-                </li>
-                <li class="nav-item">
-                    <a href="products.html" class="nav-link">Products</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-separator">|</span>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="nav-social">
-                <a href="https://www.facebook.com/profile.php?id=61579358019088" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <img src="facebook.png" alt="Facebook" class="social-img">
-                </a>
-                <a href="https://www.instagram.com/corndogli_cious/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <img src="instagram.png" alt="Instagram" class="social-img">
-                </a>
-                <a href="https://www.tiktok.com/@corndog_licious" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                    <img src="tiktok.png" alt="TikTok" class="social-img">
-                </a>
-            </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- Social Media Links -->
+                <div class="nav-social d-flex align-items-center">
+                    <a href="https://www.facebook.com/profile.php?id=61579358019088" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <img src="facebook.png" alt="Facebook" class="social-img">
+                    </a>
+                    <a href="https://www.instagram.com/corndogli_cious/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <img src="instagram.png" alt="Instagram" class="social-img">
+                    </a>
+                    <a href="https://www.tiktok.com/@corndog_licious" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <img src="tiktok.png" alt="TikTok" class="social-img">
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -73,45 +72,56 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="hotdog.png" alt="Corndoglicious" class="brand-logo">
-                    <div class="footer-social-section">
-                        <h4>Stay Connected</h4>
-                        <div class="footer-social">
-                            <a href="https://www.facebook.com/profile.php?id=61579358019088" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="https://www.instagram.com/corndogli_cious/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://www.tiktok.com/@corndog_licious" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-brand text-center text-md-start">
+                        <img src="hotdog.png" alt="Corndoglicious" class="brand-logo mb-3">
+                        <div class="footer-social-section">
+                            <h4>Stay Connected</h4>
+                            <div class="footer-social">
+                                <a href="https://www.facebook.com/profile.php?id=61579358019088" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/corndogli_cious/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@corndog_licious" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h4>About</h4>
-                    <p>Affordable, tasty corndogs perfect for quick snacks and casual hangouts.</p>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4>About</h4>
+                        <p>Affordable, tasty corndogs perfect for quick snacks and casual hangouts.</p>
+                    </div>
                 </div>
-                <div>
-                    <h4>Where to Find Us</h4>
-                    <p>20 J. Ferrer Street, Guerrero Compound,<br>San Isidro, Parañaque City, Metro Manila</p>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4>Where to Find Us</h4>
+                        <p>20 J. Ferrer Street, Guerrero Compound,<br>San Isidro, Parañaque City, Metro Manila</p>
+                    </div>
                 </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-                 </div>
-         <div class="footer-bottom">
-             <div class="footer-divider"></div>
-             <div class="copyright">
-                 <p>© 2025 Corndoglicious. All rights reserved.</p>
-             </div>
-         </div>
-     </footer>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="copyright">
+                <p>© 2025 Corndoglicious. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+

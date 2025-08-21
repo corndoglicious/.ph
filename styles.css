@@ -1242,6 +1242,18 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 .contact .social-link .social-icon { color: #e67e22; }
 .contact .social-link:hover { color: #000; text-decoration: underline; }
 
+/* Contact page: force black text for Email and Phone links */
+.contact .contact-item a[href^="mailto:"],
+.contact .contact-item a[href^="tel:"] {
+	color: #000;
+}
+
+.contact .contact-item a[href^="mailto:"]:hover,
+.contact .contact-item a[href^="tel:"]:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
 /* Remove highlight around footer logo image */
 .footer .brand-logo {
 	box-shadow: none !important;
@@ -1268,4 +1280,5 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	font-weight: 700;
 	letter-spacing: 0.01em;
 }
+
 

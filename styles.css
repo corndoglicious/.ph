@@ -323,6 +323,8 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card::before {
@@ -423,6 +425,30 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     margin: 1rem 0;
 }
 
+/* Ensure consistent alignment of price, tags, and button across cards */
+.product-info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	flex: 1;
+}
+
+/* Wrap for price, tags, and button to keep them visually grouped and balanced */
+.product-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem; /* minimal spacing for balance */
+	margin-top: auto; /* push meta to bottom of card */
+}
+
+/* Subtle spacing for features below the price */
+.product-meta .product-features { margin-top: 0.25rem; }
+.product-meta .product-price { margin: 0; }
+.product-meta .select-button { margin-top: 0.5rem; }
+
+/* Push the Select button to the bottom inside product-info only */
+.product-info .select-button { margin-top: auto; align-self: center; }
+
 .product-features {
     display: flex;
     flex-wrap: wrap;
@@ -448,14 +474,17 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     font-weight: 600;
     font-size: 1.05rem;
     transition: all 0.3s ease;
-    margin: 1.5rem auto 0;
-    width: 100%;
+    margin: 1rem auto 0;
+    width: auto;
     max-width: 200px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
-    display: block;
+    display: inline-flex;
 }
+
+/* Keep features stacked above button consistently */
+.product-features { margin-bottom: 0.75rem; }
 
 .select-button:hover {
     background: #218838;

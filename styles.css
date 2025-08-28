@@ -123,17 +123,46 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     margin-left: 1rem;
 }
 
+/* Header social icons: pop-in on load to follow header reveal */
+@keyframes socialPopIn {
+    0% { opacity: 0; transform: translateY(-6px) scale(0.9); }
+    60% { opacity: 1; transform: translateY(0) scale(1.06); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nav-social a {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+    animation: socialPopIn 0.55s ease forwards;
+}
+.nav-social a:nth-child(1) { animation-delay: 0.10s; }
+.nav-social a:nth-child(2) { animation-delay: 0.18s; }
+.nav-social a:nth-child(3) { animation-delay: 0.26s; }
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .nav-social a { animation: none; opacity: 1; transform: none; }
+}
+
 .social-img {
     width: 20px;
     height: 20px;
     object-fit: contain;
     filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
-    transition: transform 0.2s ease;
+    transition: transform 0.25s ease;
     opacity: 1 !important;
 }
 
-.social-img:hover {
-    transform: translateY(-2px);
+/* Header social icons: playful bounce + tilt on hover/focus */
+@keyframes headerIconBounce {
+    0% { transform: translateY(0) scale(1) rotate(0); }
+    40% { transform: translateY(-3px) scale(1.08) rotate(-6deg); }
+    70% { transform: translateY(-1px) scale(1.03) rotate(3deg); }
+    100% { transform: translateY(-2px) scale(1.06) rotate(0); }
+}
+.social-img:hover,
+.nav-social a:focus-visible .social-img {
+    transform: translateY(-2px) scale(1.06);
+    animation: headerIconBounce 0.6s ease both;
 }
 
 /* Custom hamburger icon */
@@ -270,6 +299,15 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     color: #666;
     line-height: 1.8;
     text-align: justify;
+}
+
+/* About Us: present paragraphs in a single soft, light-orange info box */
+.about .about-text {
+    background: #fff1e6;            /* very light orange */
+    border: 1px solid #ffd9b3;       /* subtle border */
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 .about-features {
@@ -1321,6 +1359,15 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	text-decoration: underline;
 }
 
+/* Contact page: make Location (Google Maps) link black */
+.contact .contact-item a[href*="google.com/maps"] {
+	color: #000;
+}
+.contact .contact-item a[href*="google.com/maps"]:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
 /* Remove highlight around footer logo image */
 .footer .brand-logo {
 	box-shadow: none !important;
@@ -1377,7 +1424,15 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	color: #d47123; /* softened brand orange */
 }
 
-
-
-
-
+/* Unify footer headings: Follow Us, Where to Find Us, Quick Links */
+.footer .footer-section h4,
+.footer-social-section h4 {
+	color: #3f220e;
+	font-weight: 800;
+}
+/* Ensure heading link inherits same color/weight */
+.footer .footer-section h4 a {
+	color: inherit;
+	font-weight: inherit;
+	text-decoration: none;
+}

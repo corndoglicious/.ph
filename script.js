@@ -20,20 +20,79 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.style.transform = 'translateY(0) scale(1)';
+        } else {
+            // Reset when scrolling away so animations re-trigger when coming back
+            entry.target.style.opacity = '0';
+            entry.target.style.transform = 'translateY(24px) scale(0.98)';
         }
     });
 }, observerOptions);
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.product-card, .feature');
-    
-    animatedElements.forEach(el => {
+    const animatedElements = document.querySelectorAll(
+        [
+            '.product-card',
+            '.feature',
+            '.condiment-item',
+            '.contact-item',
+            '.contact-target',
+            '.products h2',
+            '.about h2',
+            '.contact h2'
+        ].join(', ')
+    );
+
+    const getInitialTransform = (el) => {
+        if (el.matches('.contact-target')) return 'translateX(24px) scale(0.98)';
+        return 'translateY(24px) scale(0.98)';
+    };
+
+    animatedElements.forEach((el, index) => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transform = getInitialTransform(el);
+        el.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
+        // Slightly slower stagger (wrap every 6 items)
+        el.style.transitionDelay = `${(index % 6) * 120}ms`;
         observer.observe(el);
+    });
+
+    // Header/Navigation entrance animation
+    const brand = document.querySelector('.navbar-brand');
+    const links = document.querySelectorAll('.nav-link');
+    const socialImgs = document.querySelectorAll('.nav-social .social-img');
+
+    if (brand) {
+        brand.style.opacity = '0';
+        brand.style.transform = 'translateY(-12px)';
+        brand.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        requestAnimationFrame(() => {
+            brand.style.opacity = '1';
+            brand.style.transform = 'translateY(0)';
+        });
+    }
+
+    [...links].forEach((link, i) => {
+        link.style.opacity = '0';
+        link.style.transform = 'translateY(-10px)';
+        link.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        link.style.transitionDelay = `${150 + i * 100}ms`;
+        requestAnimationFrame(() => {
+            link.style.opacity = '1';
+            link.style.transform = 'translateY(0)';
+        });
+    });
+
+    [...socialImgs].forEach((img, i) => {
+        img.style.opacity = '0';
+        img.style.transform = 'scale(0.9)';
+        img.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        img.style.transitionDelay = `${300 + i * 100}ms`;
+        requestAnimationFrame(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'scale(1)';
+        });
     });
 });
 
@@ -163,4 +222,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-

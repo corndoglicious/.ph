@@ -182,6 +182,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 /* Hero Section */
 .hero {
     height: calc(100vh - 70px);
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -200,11 +201,10 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     bottom: 0;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
     opacity: 0.3;
-    z-index: 1;
 }
 
 .hero-content {
-    z-index: 3;
+    z-index: 2;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -248,41 +248,6 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     color: #e67e22;
-}
-
-/* Background video styling for hero section */
-.hero-background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-}
-
-/* Fallback background image */
-.hero-background-fallback {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.3;
-}
-
-/* Dark overlay for text readability */
-.hero--video::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-    z-index: 1;
 }
 
 /* About Section */
@@ -1295,5 +1260,214 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	outline: none !important;
 	display: inline-flex;
 	align-items: center;
-	justify-content
+	justify-content: center;
+	min-width: 120px;
+}
 
+/* Unified sizing for modal action buttons */
+.modal-buttons .btn-cancel,
+.modal-buttons .btn-order {
+	padding: 12px 26px !important;
+	min-width: 140px !important;
+	border-radius: 999px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	font-size: 1rem !important;
+	line-height: 1 !important;
+}
+
+/* Footer heading color variations and highlights */
+.footer-social-section h4,
+.footer .footer-section h4 {
+	/* remove highlight background */
+	background: none !important;
+	padding: 0 !important;
+	border-radius: 0 !important;
+}
+
+/* Differentiate colors without background */
+.footer-social-section h4 { color: #7a4f27; }
+.footer .footer-section h4 { color: #5a3116; }
+.footer .footer-section p,
+.footer .footer-section a { color: #6b4424; }
+.footer .footer-section a:hover { color: #e67e22; }
+
+/* Desktop alignment for footer columns */
+@media (min-width: 768px) {
+	.footer-brand { align-items: flex-start; text-align: left; }
+	.footer .footer-section { text-align: left; }
+	.footer-links { padding-left: 0; }
+}
+
+/* Animated text color effect for footer links and headings on hover */
+@keyframes footerLinkGlow {
+	0% { color: #7a4f27; }
+	50% { color: #e67e22; }
+	100% { color: #7a4f27; }
+}
+.footer a:hover,
+.footer h4:hover {
+	animation: footerLinkGlow 1.2s ease-in-out infinite;
+	text-decoration: none;
+}
+
+/* Center the footer logo + label + icons on all sizes */
+.footer-brand {
+	align-items: center;
+	text-align: center;
+	padding-top: 0;
+}
+
+@media (min-width: 768px) {
+	.footer-brand { flex-direction: column; gap: 0.75rem; }
+	.footer-social-section { flex-direction: column; align-items: center; gap: 0.5rem; }
+	.footer-social { justify-content: center; }
+	.brand-logo { width: 84px; height: 84px; }
+}
+
+@media (max-width: 767.98px) {
+	.footer-brand { align-items: center; text-align: center; }
+	.footer-social-section { flex-direction: column; }
+	.footer-social { justify-content: center; }
+}
+
+/* Footer heading color hierarchy: headings darker than descriptions */
+.footer .footer-section h4 { color: #3f220e; font-weight: 800; letter-spacing: 0.04em; }
+.footer-social-section h4 { color: #512c15; font-weight: 800; }
+.footer .footer-section p { color: #8b5e3c; }
+.footer .footer-section a { color: #6b4424; }
+.footer .footer-section a:hover { color: #e67e22; }
+
+/* Contact page social links: icon light orange, text black */
+.contact .social-link { color: #000; }
+.contact .social-link .social-icon { color: #e67e22; }
+.contact .social-link:hover { color: #000; text-decoration: underline; }
+
+/* Contact page: force black text for Email and Phone links */
+.contact .contact-item a[href^="mailto:"],
+.contact .contact-item a[href^="tel:"] {
+	color: #000;
+}
+
+.contact .contact-item a[href^="mailto:"]:hover,
+.contact .contact-item a[href^="tel:"]:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+/* Contact page: make Location (Google Maps) link black */
+.contact .contact-item a[href*="google.com/maps"] {
+	color: #000;
+}
+.contact .contact-item a[href*="google.com/maps"]:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+/* Remove highlight around footer logo image */
+.footer .brand-logo {
+	box-shadow: none !important;
+	filter: none !important;
+	background: transparent !important;
+}
+
+/* Lively section headings using Baloo 2 when available */
+.about h2,
+.products h2,
+.contact h2 {
+	font-family: 'Baloo 2', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	font-weight: 800;
+	letter-spacing: 0.02em;
+}
+
+/* Apply Baloo 2 to important subheadings */
+.feature h3,
+.condiments-section h3,
+.contact-item h3,
+.contact-target h3,
+.modal-title {
+	font-family: 'Baloo 2', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+}
+
+/* --- Soft, eye-friendly box palette overrides --- */
+/* Softer orange background for content boxes with improved legibility */
+.feature,
+.product-card,
+.condiment-item,
+.contact-item,
+.contact-target {
+	background: #fff1e6;            /* very light orange */
+	border: 1px solid #ffd9b3;       /* subtle border for definition */
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08); /* lighter shadow */
+}
+
+/* Slightly richer text color inside boxes for better contrast */
+.feature p,
+.product-card .product-info p,
+.condiment-item h4,
+.contact-item p,
+.contact-target li,
+.contact-target p {
+	color: #5a3116; /* warm brown for comfortable reading */
+}
+
+/* Keep headings a touch softer while staying on-brand */
+.feature h3,
+.contact-item h3,
+.contact-target h3 {
+	color: #d47123; /* softened brand orange */
+}
+
+/* Unify footer headings: Follow Us, Where to Find Us, Quick Links */
+.footer .footer-section h4,
+.footer-social-section h4 {
+	color: #3f220e;
+	font-weight: 800;
+}
+/* Ensure heading link inherits same color/weight */
+.footer .footer-section h4 a {
+	color: inherit;
+	font-weight: inherit;
+	text-decoration: none;
+}
+
+
+
+/* Background video styling for hero section */
+.hero-background-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 0;
+	display: block;
+}
+
+/* Fallback background image */
+.hero-background-fallback {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -1;
+	opacity: 0.3;
+}
+
+/* Dark overlay for text readability */
+.hero--video::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+	z-index: 1;
+}

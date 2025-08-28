@@ -61,10 +61,18 @@
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero hero--video">
+        <!-- Background Video -->
+        <video class="hero-background-video" autoplay loop muted playsinline preload="auto">
+            <source src="background.mp4.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Fallback Background Image -->
+        <img src="background.jpg" alt="Corndoglicious Background" class="hero-background-fallback">
+        
         <div class="hero-content">
             <h1>Welcome to Corndoglicious<span class="hero-bang">!</span></h1>
-            <p>Try our signature corndog and ham & cheese twist, with your choice of flavors. <span class="hero-highlight">Every Bite, So Suspicious? Nope, It’s Corndoglicious.</span></p>
+            <p>Try our signature corndog and ham & cheese twist, with your choice of flavors. <span class="hero-highlight">Every Bite, So Suspicious? Nope, It's Corndoglicious.</span></p>
             <a href="products.html" class="cta-button">View Our Corndogs</a>
         </div>
     </section>
@@ -118,6 +126,8 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
 
 
 

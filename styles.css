@@ -194,6 +194,10 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     animation: fadeInUp 1s ease;
 }
 
+.hero-bang { color: #ffe5cc; }
+.hero h1, .hero p { color: #fff; }
+.hero-highlight { color: #ffe5cc; }
+
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
@@ -223,7 +227,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 /* About Section */
 .about {
     padding: 100px 0;
-    background: #f8f9fa;
+    background: #ffffff;
 }
 
 .about-header {
@@ -275,7 +279,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 }
 
 .feature {
-    background: white;
+    background: #ffe5cc;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -299,7 +303,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 /* Products Section */
 .products {
     padding: 100px 0;
-    background: white;
+    background: #ffffff;
 }
 
 .products h2 {
@@ -316,7 +320,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 }
 
 .product-card {
-    background: white;
+    background: #ffe5cc;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -507,7 +511,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     margin-top: 4rem;
     text-align: center;
     padding: 3rem;
-    background: #f8f9fa;
+    background: #ffffff;
     border-radius: 20px;
 }
 
@@ -528,12 +532,18 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 2rem;
-    max-width: 800px;
+    max-width: none;
     margin: 0 auto;
 }
 
+@media (min-width: 992px) {
+    .condiments-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
 .condiment-item {
-    background: white;
+    background: #ffe5cc;
     padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -580,7 +590,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 /* Contact Section */
 .contact {
     padding: 100px 0;
-    background: #f8f9fa;
+    background: #ffffff;
 }
 
 .contact h2 {
@@ -612,7 +622,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 }
 
 .contact-item {
-    background: white;
+    background: #ffe5cc;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -667,7 +677,7 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 }
 
 .contact-target {
-    background: white;
+    background: #ffe5cc;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -718,6 +728,26 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
     position: relative;
 }
 
+/* Center footer columns evenly */
+.footer .row {
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+/* Normalize footer column widths and center content visually */
+.footer .col-lg-3.col-md-6 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .footer .col-lg-3.col-md-6 {
+        width: 31%; /* roughly thirds with small gap */
+        max-width: 380px;
+    }
+}
+
 .footer-brand {
     display: flex;
     flex-direction: column;
@@ -747,6 +777,14 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 
 .footer p {
     font-size: 0.95rem;
+}
+
+/* Tighter address layout under Where to Find Us */
+.footer-address {
+    max-width: 320px;
+    margin: 0; /* align with heading start */
+    text-align: left; /* text flush under the W in Where */
+    line-height: 1.5;
 }
 
 .footer-links {
@@ -1309,5 +1347,36 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	font-weight: 700;
 	letter-spacing: 0.01em;
 }
+
+/* --- Soft, eye-friendly box palette overrides --- */
+/* Softer orange background for content boxes with improved legibility */
+.feature,
+.product-card,
+.condiment-item,
+.contact-item,
+.contact-target {
+	background: #fff1e6;            /* very light orange */
+	border: 1px solid #ffd9b3;       /* subtle border for definition */
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08); /* lighter shadow */
+}
+
+/* Slightly richer text color inside boxes for better contrast */
+.feature p,
+.product-card .product-info p,
+.condiment-item h4,
+.contact-item p,
+.contact-target li,
+.contact-target p {
+	color: #5a3116; /* warm brown for comfortable reading */
+}
+
+/* Keep headings a touch softer while staying on-brand */
+.feature h3,
+.contact-item h3,
+.contact-target h3 {
+	color: #d47123; /* softened brand orange */
+}
+
+
 
 

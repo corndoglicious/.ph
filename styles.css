@@ -1417,6 +1417,12 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
   color: #d47123;
 }
 
+/* Center the text under WHERE TO FIND US */
+.footer-section.address p {
+  text-align: center;
+  margin: 5px 0; /* optional spacing */
+}
+
 /* --- Optional: Quick Links & Contact Items Styling --- */
 .footer-section ul {
   list-style: none;
@@ -1473,4 +1479,5 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
 	z-index: 1;
 }
+
 

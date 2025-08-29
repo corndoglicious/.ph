@@ -1312,134 +1312,126 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	text-decoration: none;
 }
 
-/* --- Footer Container --- */
-.footer {
-  display: flex;
-  flex-wrap: wrap;               /* allow sections to wrap on smaller screens */
-  justify-content: space-between; /* spread sections evenly */
-  align-items: flex-start;
-  gap: 20px;
-  padding: 30px 20px;
-  background-color: #fff1e6;      /* soft light orange background */
-  border-top: 1px solid #ffd9b3;  /* subtle top border */
-}
-
-/* --- Individual Footer Sections --- */
-.footer-section {
-  flex: 1 1 200px;   /* grow, shrink, min width 200px */
-  margin: 10px;
-}
-
-/* --- Footer Logo & Social Icons --- */
+/* Center the footer logo + label + icons on all sizes */
 .footer-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.75rem;
+	align-items: center;
+	text-align: center;
+	padding-top: 0;
 }
 
-.footer-social-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.footer-social {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-/* --- Footer Headings & Links --- */
-.footer .footer-section h4,
-.footer-social-section h4 {
-  color: #3f220e;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-
-.footer .footer-section a {
-  color: #6b4424;
-  text-decoration: none;
-}
-
-.footer .footer-section a:hover {
-  color: #e67e22;
-}
-
-/* --- Footer Paragraphs --- */
-.footer .footer-section p {
-  color: #8b5e3c;
-}
-
-/* --- Responsive Adjustments for Tablets & Mobiles --- */
-@media (max-width: 1024px) {
-  .footer {
-    gap: 15px;
-  }
+@media (min-width: 768px) {
+	.footer-brand { flex-direction: column; gap: 0.75rem; }
+	.footer-social-section { flex-direction: column; align-items: center; gap: 0.5rem; }
+	.footer-social { justify-content: center; }
+	.brand-logo { width: 84px; height: 84px; }
 }
 
 @media (max-width: 767.98px) {
-  .footer {
-    flex-direction: column;   /* stack sections vertically */
-    align-items: center;      /* center all sections */
-    text-align: center;
-    padding: 20px 15px;
-  }
-
-  .footer-section {
-    margin: 15px 0;
-  }
-
-  .footer-brand, .footer-social-section {
-    width: 100%;
-  }
+	.footer-brand { align-items: center; text-align: center; }
+	.footer-social-section { flex-direction: column; }
+	.footer-social { justify-content: center; }
 }
 
-/* --- Logo Specifics --- */
-.brand-logo {
-  width: 84px;
-  height: 84px;
-  box-shadow: none !important;
-  filter: none !important;
-  background: transparent !important;
+/* Footer heading color hierarchy: headings darker than descriptions */
+.footer .footer-section h4 { color: #3f220e; font-weight: 800; letter-spacing: 0.04em; }
+.footer-social-section h4 { color: #512c15; font-weight: 800; }
+.footer .footer-section p { color: #8b5e3c; }
+.footer .footer-section a { color: #6b4424; }
+.footer .footer-section a:hover { color: #e67e22; }
+
+/* Contact page social links: icon light orange, text black */
+.contact .social-link { color: #000; }
+.contact .social-link .social-icon { color: #e67e22; }
+.contact .social-link:hover { color: #000; text-decoration: underline; }
+
+/* Contact page: force black text for Email and Phone links */
+.contact .contact-item a[href^="mailto:"],
+.contact .contact-item a[href^="tel:"] {
+	color: #000;
 }
 
-/* --- Social Icons Styling --- */
-.footer-social .social-icon {
-  font-size: 1.5rem;
-  color: #e67e22;
+.contact .contact-item a[href^="mailto:"]:hover,
+.contact .contact-item a[href^="tel:"]:hover {
+	color: #000;
+	text-decoration: underline;
 }
 
-.footer-social .social-icon:hover {
-  color: #d47123;
+/* Contact page: make Location (Google Maps) link black */
+.contact .contact-item a[href*="google.com/maps"] {
+	color: #000;
+}
+.contact .contact-item a[href*="google.com/maps"]:hover {
+	color: #000;
+	text-decoration: underline;
 }
 
-/* Center the text under WHERE TO FIND US */
-.footer-section.address p {
-  text-align: center;
-  margin: 5px 0; /* optional spacing */
+/* Remove highlight around footer logo image */
+.footer .brand-logo {
+	box-shadow: none !important;
+	filter: none !important;
+	background: transparent !important;
 }
 
-/* --- Optional: Quick Links & Contact Items Styling --- */
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Lively section headings using Baloo 2 when available */
+.about h2,
+.products h2,
+.contact h2 {
+	font-family: 'Baloo 2', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	font-weight: 800;
+	letter-spacing: 0.02em;
 }
 
-.footer-section li {
-  margin-bottom: 8px;
+/* Apply Baloo 2 to important subheadings */
+.feature h3,
+.condiments-section h3,
+.contact-item h3,
+.contact-target h3,
+.modal-title {
+	font-family: 'Baloo 2', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	font-weight: 700;
+	letter-spacing: 0.01em;
 }
 
-.footer-section li a {
-  color: #6b4424;
+/* --- Soft, eye-friendly box palette overrides --- */
+/* Softer orange background for content boxes with improved legibility */
+.feature,
+.product-card,
+.condiment-item,
+.contact-item,
+.contact-target {
+	background: #fff1e6;            /* very light orange */
+	border: 1px solid #ffd9b3;       /* subtle border for definition */
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08); /* lighter shadow */
 }
 
-.footer-section li a:hover {
-  color: #e67e22;
+/* Slightly richer text color inside boxes for better contrast */
+.feature p,
+.product-card .product-info p,
+.condiment-item h4,
+.contact-item p,
+.contact-target li,
+.contact-target p {
+	color: #5a3116; /* warm brown for comfortable reading */
+}
+
+/* Keep headings a touch softer while staying on-brand */
+.feature h3,
+.contact-item h3,
+.contact-target h3 {
+	color: #d47123; /* softened brand orange */
+}
+
+/* Unify footer headings: Follow Us, Where to Find Us, Quick Links */
+.footer .footer-section h4,
+.footer-social-section h4 {
+	color: #3f220e;
+	font-weight: 800;
+}
+/* Ensure heading link inherits same color/weight */
+.footer .footer-section h4 a {
+	color: inherit;
+	font-weight: inherit;
+	text-decoration: none;
 }
 
 
@@ -1479,5 +1471,3 @@ img[src*=".png"], img[src*=".jpg"], img[src*=".jpeg"] {
 	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
 	z-index: 1;
 }
-
-
